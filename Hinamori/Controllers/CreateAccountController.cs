@@ -25,6 +25,7 @@ namespace Hinamori.Controllers
                 _context.UserInfos.Add(userInfo);
                 _context.SaveChanges();
 
+                //in the future it redirects to the chat page
                 return RedirectToAction("Index", "Home");
             }
 

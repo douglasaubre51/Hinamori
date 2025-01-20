@@ -1,10 +1,14 @@
 ﻿@model Hinamori.Models.UserInfo
 
+<link rel="stylesheet" href="~/css/CreateAccount/Create.css" />
+
 <div class="create-container">
-    <form method="post" asp-action="Create" asp-controller="CreateAccount">
+
+    <form class="form-container" method="post" asp-action="Create" asp-controller="CreateAccount">
+
         <div class="form-group">
             <label asp-for="@Model.Username">
-                Username:
+                Username
             </label>
             <input asp-for="@Model.Username" />
             <span asp-validation-for="@Model.Username"></span>
@@ -12,7 +16,7 @@
 
         <div class="form-group">
             <label asp-for="@Model.Email">
-                Email:
+                Email
             </label>
             <input type='email' asp-for="@Model.Email" />
             <span asp-validation-for="@Model.Email"></span>
@@ -20,7 +24,7 @@
 
         <div class="form-group">
             <label asp-for="@Model.Password">
-                Password:
+                Password
             </label>
             <input type="password" asp-for="@Model.Password" />
             <span asp-validation-for="@Model.Password"></span>
@@ -28,7 +32,7 @@
 
         <div class="form-group">
             <label asp-for="@Model.DateOfBirth">
-                Date of Birth:
+                Date of Birth
             </label>
             <input type="date" asp-for="@Model.DateOfBirth" />
             <span asp-validation-for="@Model.DateOfBirth"></span>
@@ -36,7 +40,7 @@
 
         <div class="form-group">
             <label asp-for="@Model.ProfilePicture">
-                Profile Picture:
+                Profile Picture
             </label>
             <input asp-for="@Model.ProfilePicture" />
             <span asp-validation-for="@Model.ProfilePicture"></span>
@@ -44,7 +48,7 @@
 
         <div class="form-group">
             <label asp-for="@Model.Role">
-                Role:
+                Role
             </label>
             <input asp-for="@Model.Role" />
             <span asp-validation-for="@Model.Role"></span>
@@ -52,7 +56,7 @@
 
         <div class="form-group">
             <label asp-for="@Model.Course">
-                Course:
+                Course
             </label>
             <input asp-for="@Model.Course" />
             <span asp-validation-for="@Model.Course"></span>
@@ -60,14 +64,18 @@
 
         <div class="form-group">
             <label asp-for="@Model.Semester">
-                Semester:
+                Semester
             </label>
             <input asp-for="@Model.Semester" />
             <span asp-validation-for="@Model.Semester"></span>
         </div>
 
         <div class="form-group">
-            <input type="submit" value="Create Account" />
+            <div class="button-container">
+                <input type="submit" value="Create" />
+
+                <input type="reset" value="clear" />
+            </div>
         </div>
     </form>
 </div>
