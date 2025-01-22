@@ -31,6 +31,14 @@
         </div>
 
         <div class="form-group">
+            <label asp-for="@Model.ConfirmPassword">
+                Confirm Password
+            </label>
+            <input type="password" asp-for="@Model.ConfirmPassword" />
+            <span asp-validation-for="@Model.ConfirmPassword"></span>
+        </div>
+
+        <div class="form-group">
             <label asp-for="@Model.DateOfBirth">
                 Date of Birth
             </label>

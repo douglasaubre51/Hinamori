@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Hinamori.Data.Enums;
 
 namespace Hinamori.Models;
 
@@ -12,14 +13,16 @@ public class UserInfo
     [ForeignKey("LogInfo")]
     public int LogID { get; set; }
 
-    public string Username { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public string ConfirmPassword { get; set; }
+    [Required(ErrorMessage = "Please enter your username")]
+    public string? Username { get; set; }
+    public string? Email { get; set; }
+    public string? Password { get; set; }
+    [Compare("Password", ErrorMessage = "passwords do not match!")]
+    public string? ConfirmPassword { get; set; }
     public DateOnly DateOfBirth { get; set; }
-    public string ProfilePicture { get; set; }
+    public string? ProfilePicture { get; set; }
     //college details
-    public string Role { get; set; }
-    public string Course { get; set; }
-    public string Semester { get; set; }
+    public Roles Role { get; set; }
+    public Departments Department { get; set; }
+    public Semesters Semester { get; set; }
 }
