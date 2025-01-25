@@ -7,3 +7,5 @@ exec sp_help UserInfos;
 
 select *
 from UserInfos;
+
+truncate table UserInfos;

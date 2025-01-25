@@ -1,6 +1,6 @@
-namespace Hinamori.Data;
+namespace Hinamori.Data.Enums;
 
 public enum Roles
 {
-    Student, Teacher, Admin
+    Administrator, Teacher, Student
 }

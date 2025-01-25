@@ -22,7 +22,7 @@ public class UserInfo
     public DateOnly DateOfBirth { get; set; }
     public string? ProfilePicture { get; set; }
     //college details
-    public Roles Role { get; set; }
     public Departments Department { get; set; }
+    public Roles Role { get; set; }
     public Semesters Semester { get; set; }
 }
