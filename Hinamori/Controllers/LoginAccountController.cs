@@ -1,13 +1,13 @@
-using Hinamori.Data;
-using Hinamori.Models;
 using Microsoft.AspNetCore.Mvc;
+using Hinamori.Data;
+using Hinamori.ViewModels;
 
 namespace Hinamori.Controllers
 {
     public class LoginAccountController : Controller
     {
         private readonly ApplicationDbContext _context;
-        // GET: LoginAccountController
+
         public LoginAccountController(ApplicationDbContext context) { _context = context; }
         public ActionResult Login()
         {
@@ -15,20 +15,32 @@ namespace Hinamori.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Login login)
+        public ActionResult Login(LoginViewModel loginVM)
         {
             if (ModelState.IsValid)
             {
-                string? email = _context.UserInfos.Find(login.Email).ToString();
+                string? email = _context.UserInfos.Find(loginVM.Email).ToString();
 
                 if (email == null)
                 {
-                    login.EmailValidation = "invalid emailid";
+                    ViewBag.ValidateEmail = "invalid emailid!";
+                    return View(loginVM);
                 }
 
+                string? password = _context.UserInfos.Where(e => e.Email == email && e.Password == loginVM.Password).ToString();
+
+                if (password == null)
+                {
+                    ViewBag.ValidatePassword = "wrong password!";
+                    return View(loginVM);
+                }
+
+                ViewBag.Success = "successfully logged in!";
+                return View(loginVM);
+                // return RedirectToAction("Index", "Chatter");
             }
 
-            return View(login);
+            return View(loginVM);
         }
     }
 }
