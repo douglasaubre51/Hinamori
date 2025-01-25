@@ -19,7 +19,7 @@ namespace Hinamori.Controllers
         {
             if (ModelState.IsValid)
             {
-                string? email = _context.UserInfos.Find(loginVM.Email).ToString();
+                string? email = _context.UserInfos.Find(loginVM.EmailValidation).ToString();
 
                 if (email == null)
                 {
@@ -27,7 +27,7 @@ namespace Hinamori.Controllers
                     return View(loginVM);
                 }
 
-                string? password = _context.UserInfos.Where(e => e.Email == email && e.Password == loginVM.Password).ToString();
+                string? password = _context.UserInfos.Where(e => e.Email == email && e.Password == loginVM.PasswordValidation).ToString();
 
                 if (password == null)
                 {
