@@ -3,29 +3,26 @@
 <link href="~/css/LoginAccount/Login.css" rel="stylesheet" />
 
 <div class="container">
-    <forn class="form-container" asp-action="Login" asp-controller="LoginAccount" method="post">
+    <form class="form-container" asp-action="Login" asp-controller="LoginAccount" method="post">
         <div class="form-group">
-            <label asp-for="@Model.EmailValidation">
-                <input type="text" asp-for="@Model.EmailValidation" />
-            </label>
+            <label asp-for="@Model.EmailValidation">EmailID</label>
+            <input type="email" asp-for="@Model.EmailValidation" />
             <span asp-validation-for="@Model.EmailValidation"></span>
             <span>@ViewBag.ValidateEmail</span>
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.EmailValidation">
-                <input type="text" asp-for="@Model.EmailValidation" />
-            </label>
-            <span asp-validation-for="@Model.EmailValidation"></span>
+            <label asp-for="@Model.PasswordValidation">Password</label>
+            <input type="password" asp-for="@Model.PasswordValidation" />
+            <span asp-validation-for="@Model.PasswordValidation"></span>
             <span>@ViewBag.ValidatePassword</span>
         </div>
 
         <div class="form-group">
             <div class="btn-container">
-                <input type="submit" value="Login" class="btn btn-primary" />
-
-                <input type="reset" value="clear" class="btn btn-primary" />
+                <input type="submit" value="Login" class="button" />
+                <input type="button" value="clear" class="button" onclick="resetField()" />
             </div>
         </div>
-    </forn>
+    </form>
 </div>

@@ -19,25 +19,22 @@ namespace Hinamori.Controllers
         {
             if (ModelState.IsValid)
             {
-                string? email = _context.UserInfos.Find(loginVM.EmailValidation).ToString();
+                var user = _context.UserInfos.FirstOrDefault(e => e.Email == loginVM.EmailValidation);
 
-                if (email == null)
+                if (user == null)
                 {
                     ViewBag.ValidateEmail = "invalid emailid!";
                     return View(loginVM);
                 }
 
-                string? password = _context.UserInfos.Where(e => e.Email == email && e.Password == loginVM.PasswordValidation).ToString();
-
-                if (password == null)
+                if (user.Password != loginVM.PasswordValidation)
                 {
                     ViewBag.ValidatePassword = "wrong password!";
                     return View(loginVM);
                 }
 
                 ViewBag.Success = "successfully logged in!";
-                return View(loginVM);
-                // return RedirectToAction("Index", "Chatter");
+                return RedirectToAction("Index", "Chatter");
             }
 
             return View(loginVM);
