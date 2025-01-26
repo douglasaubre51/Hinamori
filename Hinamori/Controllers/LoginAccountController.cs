@@ -34,7 +34,7 @@ namespace Hinamori.Controllers
                 }
 
                 ViewBag.Success = "successfully logged in!";
-                return RedirectToAction("Index", "Chatter");
+                return RedirectToAction("Index", "ChannelPage");
             }
 
             return View(loginVM);
