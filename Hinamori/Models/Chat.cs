@@ -11,7 +11,7 @@ public class Chat
     [ForeignKey("UserInfo")]
     public int UserID { get; set; }
 
-    public string Message { get; set; }
-    public string MessageSentTime { get; set; }
-    public string PinnedMessage { get; set; }
+    public string? Message { get; set; }
+    public string? MessageSentTime { get; set; }
+    public string? PinnedMessage { get; set; }
 }

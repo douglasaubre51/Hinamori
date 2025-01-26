@@ -21,8 +21,12 @@
         <div class="form-group">
             <div class="btn-container">
                 <input type="submit" value="Login" class="button" />
-                <input type="button" value="clear" class="button" onclick="resetField()" />
+                <input type="reset" value="clear" class="button" />
             </div>
+        </div>
+
+        <div class="form-group">
+            <a asp-action="Create" asp-controller="CreateAccount">Create new account</a>
         </div>
     </form>
 </div>

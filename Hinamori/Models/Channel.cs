@@ -11,8 +11,8 @@ public class Channel
     [ForeignKey("Chat")]
     public int ChatID { get; set; }
 
-    public string ChannelName { get; set; }
-    public string ChannelDescription { get; set; }
-    public string Course { get; set; }
-    public string Semester { get; set; }
+    public string? ChannelName { get; set; }
+    public string? ChannelDescription { get; set; }
+    public string? Course { get; set; }
+    public string? Semester { get; set; }
 }
