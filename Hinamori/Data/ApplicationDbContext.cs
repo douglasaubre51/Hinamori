@@ -2,6 +2,7 @@ using System;
 using System.Threading.Channels;
 using Microsoft.EntityFrameworkCore;
 using Hinamori.Models;
+using Hinamori.Data.Enums;
 
 namespace Hinamori.Data;
 
